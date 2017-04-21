@@ -23,7 +23,7 @@ public class FindNum {
 	}
 	public static boolean findNum(int[][] data,int num,int rows,int cols){
 		//判断二维数组是否为空
-		if(data == null && data.length ==0 && (data.length == 1 && data[0].length == 0)) {
+		if(data == null || data.length ==0 || (data.length == 1 && data[0].length == 0)) {
 			return false;
 		}
 		if(rows > 0 && cols > 0) {
