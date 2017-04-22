@@ -16,6 +16,9 @@ public class ReplaceBlank_03 {
 		String str = "we are happy.";
 		//String str2 = str.replaceAll(" ", "%20");
 		//System.out.println(str2);
+		if(str == null || str == "") {//注意边界条件，如果str为nll或者空字符串都需要进行处理
+			return;
+		}
 		char[] data = str.toCharArray();//将字符串转换为字符串数组
 		char[] newData = replaceBlank(data);
 		System.out.println(newData);
