@@ -37,7 +37,8 @@ public class PrintListRev_04 {
 		node6.next = null;
 		
 		//System.out.println(headNode.value);
-		//printListRev1(headNode);
+		printListRev1(headNode);
+		System.out.println();
 		printListRev2(headNode);
 	}
 	
