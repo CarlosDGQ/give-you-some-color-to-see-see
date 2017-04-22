@@ -13,7 +13,7 @@ public class ReplaceBlank_03 {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String str = "we are happy.";
+		String str = "we are happy.";//为了方便就不手动输入了，自己可以修改代码，来进行测试
 		//String str2 = str.replaceAll(" ", "%20");
 		//System.out.println(str2);
 		if(str == null || str == "") {//注意边界条件，如果str为nll或者空字符串都需要进行处理
