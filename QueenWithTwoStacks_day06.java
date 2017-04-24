@@ -39,6 +39,9 @@ class QueenWithTwoStacks {
 	}
 	//出队列
 	public int pop() {
+		if(stack2.empty() && stack1.empty()) {//没有元素，返回一个负数
+			return -999999;
+		}
 		if(!stack2.empty()) {//如果栈2不为空,直接出
 			return stack2.pop();
 		} else {//若栈2为空
