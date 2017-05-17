@@ -1,5 +1,3 @@
-package www.bit.com;
-
 import java.util.Stack;
 
 public class Cross {
