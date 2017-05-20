@@ -8,10 +8,15 @@ public class ReorderOddEven_14 {
 	 * 思路2：使程序具有可扩展性。如果要求将所有负数放在所有的非负数之前或者分成两部分将能被3整除的
 	 *		放在不能被3整除的前面，这时我们发现只是判断条件不同，大体的框架是相同的。
 	 *		可以使用模板模式。将条件判断抽取出来，这样程序的可扩展性就大大提高了。
+	 *
+	 *前面两种解法都不保证元素的相对顺序，如果需要保证元素的相对顺序可以使用下面的思路。
+	 *思路3：首先创建一个新的数组,然后算出奇数的个数，计算出偶数在新数组中开始位置.分别从奇数和偶数开始的位置填充
+	 *新数组。
 	 */
 	public static void main(String[] args) {
 		int[] arr = {1,24,5,74,3,5};
-		ReorderOddEven.reorderOddEven_1(arr);
+		//ReorderOddEven.reorderOddEven_1(arr);
+		arr = ReorderOddEven.reorderOddEven_3(arr);
 		for(int i = 0; i < arr.length; i++) {
 			System.out.println(arr[i]);
 		}
@@ -78,5 +83,31 @@ class ReorderOddEven {
 				end--;
 			}
 		}
+	}
+	
+	public static int[] reorderOddEven_3(int[] arr) {
+		if (arr == null || arr.length == 0) {
+			return null;
+		}
+		
+		int[] newArr = new int[arr.length];
+		
+		int oddCount = 0;//奇数个数
+		int oddStart = 0;
+		int evenStart = 0;//新数组中偶数开始填充的位置
+		for(int i =0; i < arr.length; i++) {//计算数组中奇数的个数
+			if((arr[i] & 0x01) == 1) {
+				oddCount++;
+			}
+		}
+		evenStart = oddCount;//新数组中偶数开始的位置
+		for(int i = 0; i < arr.length; i++) {
+			if((arr[i] & 0x01) == 1) {//奇数放入新数组
+				newArr[oddStart++] = arr[i];
+			} else {//偶数放入新数组
+				newArr[evenStart++] = arr[i];
+			}
+		}
+		return newArr;
 	}
 }
