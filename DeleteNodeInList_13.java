@@ -35,6 +35,9 @@ class NodeLi {
 class DeleteNodeInList {
 	public static NodeLi deleteNodeInList(NodeLi head, NodeLi toBeDel) {
 		NodeLi p = head;
+		if(p == null || toBeDel == null) {//空链表或者toBeDel为空，直接退出
+			return ;
+		}
 		//只有一个节点而且要删除的节点是头结点
 		if(p.nextNode == null && toBeDel == p) {
 			p = toBeDel = null;
